@@ -17,40 +17,42 @@
 
 <body>
 <div class="container">
-    <h3>Employee Directory</h3>
+    <h3>Lista pracowników</h3>
     <hr>
 
     <a th:href="@{/employees/showFormForAdd}"
        class="btn btn-primary btn-sm mb-3">
-        Add Employee
+        Dodaj pracownika
     </a>
 
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email Name</th>
-            <th>Action</th>
+            <th>Id</th>
+            <th>Nazwisko</th>
+            <th>Pensja</th>
+            <th>Firma</th>
+            <th>Akcje</th>
         </tr>
         </thead>
 
         <tbody>
         <tr th:each="tempEmployee : ${employees}">
-            <td th:text="${tempEmployee.firstName}"/>
+            <td th:text="${tempEmployee.id}"/>
             <td th:text="${tempEmployee.lastName}"/>
-            <td th:text="${tempEmployee.email}"/>
+            <td th:text="${tempEmployee.salary}"/>
+            <td th:text="${tempEmployee.firm}"/>
 
             <td>
                 <a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"
                    class="btn btn-info btn-sm">
-                    Update
+                    Edytuj
                 </a>
 
                 <a th:href="@{/employees/delete(employeeId=${tempEmployee.id})}"
                    class="btn btn-danger btn-sm"
-                onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
-                    Delete
+                onclick="if (!(confirm('Jesteś pewny, że chcesz usunąć tego pracownika?'))) return false">
+                    Usuń
                 </a>
             </td>
         </tr>
