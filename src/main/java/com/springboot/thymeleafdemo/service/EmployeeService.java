@@ -14,5 +14,5 @@ public interface EmployeeService {
 
     void deleteById(int id);
 
-    void prepareStartData();
+    List<Employee> prepareStartData();
 }

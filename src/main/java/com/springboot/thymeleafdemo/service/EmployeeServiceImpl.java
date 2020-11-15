@@ -5,6 +5,7 @@ import com.springboot.thymeleafdemo.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,7 +51,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void prepareStartData(){
+    public List<Employee> prepareStartData(){
 
         if (findAll().isEmpty()) {
 
@@ -72,9 +73,18 @@ public class EmployeeServiceImpl implements EmployeeService {
                     "employee3@mail.com"
             );
 
+            List<Employee> list = new ArrayList<>();
+            list.add(employee1);
+            list.add(employee2);
+            list.add(employee3);
+
             save(employee1);
             save(employee2);
             save(employee3);
+
+            return list;
         }
+
+        return null;
     }
 }

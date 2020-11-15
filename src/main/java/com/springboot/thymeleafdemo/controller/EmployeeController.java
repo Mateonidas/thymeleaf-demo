@@ -23,7 +23,7 @@ public class EmployeeController {
         List<Employee> employees = employeeService.findAll();
 
         if(employees.isEmpty()) {
-            employeeService.prepareStartData();
+            employees = employeeService.prepareStartData();
         }
 
         model.addAttribute("employees", employees);
