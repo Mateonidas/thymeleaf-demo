@@ -20,8 +20,12 @@ public class EmployeeController {
 
     @GetMapping("/list")
     public String listEmployees(Model model){
-
         List<Employee> employees = employeeService.findAll();
+
+        if(employees.isEmpty()) {
+            employeeService.prepareStartData();
+        }
+
         model.addAttribute("employees", employees);
 
         return "employees/list-employees";

@@ -48,4 +48,33 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void deleteById(int id) {
         employeeRepository.deleteById(id);
     }
+
+    @Override
+    public void prepareStartData(){
+
+        if (findAll().isEmpty()) {
+
+            Employee employee1 = new Employee(
+                    "Employee1",
+                    "Employee1",
+                    "employee1@mail.com"
+            );
+
+            Employee employee2 = new Employee(
+                    "Employee2",
+                    "Employee2",
+                    "employee2@mail.com"
+            );
+
+            Employee employee3 = new Employee(
+                    "Employee3",
+                    "Employee3",
+                    "employee3@mail.com"
+            );
+
+            save(employee1);
+            save(employee2);
+            save(employee3);
+        }
+    }
 }
